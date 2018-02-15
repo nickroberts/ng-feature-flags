@@ -23,14 +23,19 @@ Add a file to the public path `assets/json/feature-flags.json`:
     "title": "Feature Flag One",
     "description": "This is a description of the feature flag.",
     "default": true
+  },
+  {
+    "key": "feature-flag-two",
+    "title": "Feature Flag Two",
+    "description": "This is a description of the feature flag.",
+    "default": false
   }
 ]
-
 ```
 
 # Module
 
-Setup you default `app.module` by adding the `NgffModule` and loading the data before the app starts:
+Setup your default `app.module` by adding the `NgffModule` and loading the data before the app starts:
 
 ```
 import { BrowserModule } from '@angular/platform-browser';
@@ -65,7 +70,6 @@ export function setupNgff(ngffProviderService: NgffProviderService) {
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-
 ```
 
 ## Custom Feature Flag JSON
@@ -77,7 +81,6 @@ export function setupNgff(ngffProviderService: NgffProviderService) {
   const url = 'https://url-for-feature-flags-json`;
   return () => ngffProviderService.init(url);
 }
-
 ```
 
 ## Usage
@@ -122,7 +125,6 @@ import { NgffDataService } from '@nickroberts/ng-feature-flags';
   providers: [NgffDataService]
 })
 export class SharedModule { }
-
 ```
 
 Inject the service into your component:
@@ -136,11 +138,7 @@ import { NgffDataService } from '@nickroberts/ng-feature-flags';
   template: `
     <pre>{{ flag }}: {{ enabled }}
   `,
-  styles: [`
-    nav {
-      margin-bottom: 2rem;
-    }
-  `]
+  styles: []
 })
 export class AppComponent implements OnInit {
 
@@ -152,6 +150,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.enabled = this.ngffDataService.enabled(this.flag);
   }
-}
 
+}
 ```
