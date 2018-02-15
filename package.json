@@ -14,7 +14,7 @@
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0-alpha.1",
   "ngPackage": {
     "lib": {
       "entryFile": "public_api.ts",
