@@ -13,6 +13,7 @@
   ],
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
+  "private": true,
   "version": "1.0.0-alpha.1",
   "ngPackage": {
     "lib": {
@@ -24,7 +25,6 @@
   },
   "main": "./public_api.js",
   "typings": "./public_api.d.ts",
-  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -34,7 +34,6 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p package.json"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
