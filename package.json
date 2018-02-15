@@ -17,7 +17,10 @@
   "version": "0.0.1",
   "ngPackage": {
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "@ng-bootstrap/ng-bootstrap" : "@ng-bootstrap/ng-bootstrap"
+      }
     }
   },
   "license": "MIT",

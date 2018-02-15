@@ -8,7 +8,7 @@ export interface NgffFeatureFlagData {
   enabled?: boolean;
 }
 
-export const NGFF_LOCAL_STORAGE_KEY_PREFIX = 'ngff-container';
+export const NGFF_LOCAL_STORAGE_KEY_PREFIX = 'ngff';
 export const NGFF_LOCAL_STORAGE_ENABLED = 'ENABLED';
 export const NGFF_LOCAL_STORAGE_DISABLED = 'DISABLED';
 

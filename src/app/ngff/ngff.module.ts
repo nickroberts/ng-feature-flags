@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgffContainerComponent } from './ngff-container/ngff-container.component';
 import { NgffProviderService } from './ngff-provider.service';
@@ -11,6 +12,7 @@ import { NgffDataService } from './ngff-data.service';
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   declarations: [NgffContainerComponent, NgffListComponent],
