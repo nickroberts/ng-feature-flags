@@ -1,0 +1,14 @@
+[
+  {
+    "key": "cool-new-feature",
+    "title": "Cool New Feature",
+    "description": "This is a description of the cool new feature.",
+    "default": true
+  },
+  {
+    "key": "another-cool-new-feature",
+    "title": "Another Cool New Feature",
+    "description": "This is a description of the another cool new feature.",
+    "default": false
+  }
+]
