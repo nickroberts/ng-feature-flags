@@ -13,7 +13,6 @@
   ],
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
-  "private": true,
   "version": "1.0.0-alpha.1",
   "ngPackage": {
     "lib": {
