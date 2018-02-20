@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { NgffDataService, NGFF_LOCAL_STORAGE_ENABLED, NGFF_LOCAL_STORAGE_DISABLED, NgffFeatureFlagData } from './ngff-data.service';
+import { Observable } from 'rxjs/Observable';
 
 export const NGFF_DEFAULT_FEATURE_FLAG_JSON_URL = '/assets/json/feature-flags.json';
 
@@ -10,7 +11,7 @@ export class NgffProviderService {
 
   constructor(private http: HttpClient, private ngffDataService: NgffDataService) { }
 
-  init(url = NGFF_DEFAULT_FEATURE_FLAG_JSON_URL) {
+  init(url = NGFF_DEFAULT_FEATURE_FLAG_JSON_URL): Observable<NgffFeatureFlagData[]> {
     return this.http
       .get<NgffFeatureFlagData[]>(url)
       .map(data => {
