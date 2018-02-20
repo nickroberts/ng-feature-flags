@@ -11,8 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoolNewFeatureComponent } from './cool-new-feature/cool-new-feature.component';
 import { AnotherCoolNewFeatureComponent } from './another-cool-new-feature/another-cool-new-feature.component';
 
+import 'rxjs/add/operator/take';
+
 export function setupNgff(ngffProviderService: NgffProviderService) {
-  return () => ngffProviderService.init();
+  return () => ngffProviderService.init().take(1).toPromise();
 }
 
 @NgModule({

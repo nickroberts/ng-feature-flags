@@ -28,8 +28,7 @@ export class NgffProviderService {
           return ff;
         });
         return data;
-      })
-      .toPromise();
+      });
   }
 
 }
