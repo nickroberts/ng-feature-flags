@@ -1,20 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NgffModule } from './ngff/ngff.module';
 import { NgffProviderService } from './ngff//ngff-provider.service';
+import { NgffFeatureFlagData } from './ngff/ngff-data.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoolNewFeatureComponent } from './cool-new-feature/cool-new-feature.component';
 import { AnotherCoolNewFeatureComponent } from './another-cool-new-feature/another-cool-new-feature.component';
 
-import 'rxjs/add/operator/take';
+import { environment } from '../environments/environment';
 
-export function setupNgff(ngffProviderService: NgffProviderService) {
-  return () => ngffProviderService.init().take(1).toPromise();
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import { EnvironmentCoolNewFeatureComponent } from './environment-cool-new-feature/another-cool-new-feature.component';
+import { FeatureFlagNotAvailableComponent } from './feature-flag-not-available/feature-flag-not-available.component';
+
+export function setupNgff(http: HttpClient, ngffProviderService: NgffProviderService) {
+  return () => http
+    .get<NgffFeatureFlagData[]>('/assets/json/feature-flags.json')
+    .take(1)
+    .map(data => {
+      if (environment.featureFlags) {
+        return <NgffFeatureFlagData[]>[ ...data, ...environment.featureFlags ];
+      }
+      return data;
+    })
+    .switchMap(data => ngffProviderService.init(data).take(1))
+    .toPromise();
 }
 
 @NgModule({
@@ -22,7 +39,9 @@ export function setupNgff(ngffProviderService: NgffProviderService) {
     AppComponent,
     HomeComponent,
     CoolNewFeatureComponent,
-    AnotherCoolNewFeatureComponent
+    AnotherCoolNewFeatureComponent,
+    EnvironmentCoolNewFeatureComponent,
+    FeatureFlagNotAvailableComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +55,10 @@ export function setupNgff(ngffProviderService: NgffProviderService) {
     {
       provide: APP_INITIALIZER,
       useFactory: setupNgff,
-      deps: [NgffProviderService],
+      deps: [
+        HttpClient,
+        NgffProviderService
+      ],
       multi: true
     }
   ],

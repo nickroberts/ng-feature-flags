@@ -20,6 +20,12 @@ import { Component } from '@angular/core';
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="another-cool-new-feature">Another Cool New Feature</a>
           </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="environment-cool-new-feature">Environment Cool New Feature</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="feature-flag-not-available">Feature Flag Not Available</a>
+          </li>
         </ul>
       </div>
     </nav>

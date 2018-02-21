@@ -55,7 +55,10 @@ export class NgffDataService {
         return ff;
       });
     } catch (e) {
-      console.error(`Feature flag ${key} does not exist.`);
+      // We do not need to do anything with this error,
+      // as we might not have the feature flag available in all environments,
+      // so it will be disabled by default.
+      // console.error(`Feature flag ${key} does not exist.`);
     }
   }
 

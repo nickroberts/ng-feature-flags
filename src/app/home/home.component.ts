@@ -10,12 +10,18 @@ import { Component, OnInit } from '@angular/core';
 
     <p>Check out some examples:</p>
 
-    <ul class="nav">
+    <ul class="nav nav-fill">
       <li class="nav-item">
         <a class="nav-link" routerLink="cool-new-feature">Cool New Feature</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="another-cool-new-feature">Another Cool New Feature</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="environment-cool-new-feature">Environment Cool New Feature</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="feature-flag-not-available">Feature Flag Not Available</a>
       </li>
     </ul>
 

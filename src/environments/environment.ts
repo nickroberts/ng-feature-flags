@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  featureFlags: [
+    {
+      key: 'environment-cool-new-feature',
+      title: 'Environment Cool New Feature',
+      description: 'This is loaded from the Angular environment.',
+      default: false
+    }
+  ]
 };
