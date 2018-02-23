@@ -7,6 +7,7 @@ import { NgffContainerComponent } from './ngff-container/ngff-container.componen
 import { NgffProviderService } from './ngff-provider.service';
 import { NgffListComponent } from './ngff-list/ngff-list.component';
 import { NgffDataService } from './ngff-data.service';
+import { NgffIfDirective } from './ngff-if.directive';
 
 @NgModule({
   imports: [
@@ -15,8 +16,8 @@ import { NgffDataService } from './ngff-data.service';
     HttpClientModule,
     NgbModule
   ],
-  declarations: [NgffContainerComponent, NgffListComponent],
+  declarations: [NgffContainerComponent, NgffListComponent, NgffIfDirective],
   providers: [NgffProviderService, NgffDataService],
-  exports: [NgffContainerComponent, NgffListComponent]
+  exports: [NgffContainerComponent, NgffListComponent, NgffIfDirective]
 })
 export class NgffModule { }

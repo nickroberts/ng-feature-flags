@@ -167,6 +167,28 @@ To show the list of feature flags, where you can enable and disable them:
 <ngff-list></ngff-list>
 ```
 
+### Directive
+
+You can use the `*ngffIf="'feature-flag-name'"` directive to show or hide an element based on a feature flag.
+
+To show an element when a feature flag is on:
+
+```HTML
+<div *ngffIf="'cool-new-feature'">
+  I only show when the <code>cool-new-feature</code> feature flag is turned <code>on</code>.
+</div>
+```
+
+Tp hide an element when a feature flag is on:
+
+```HTML
+<div *ngffIf="'cool-new-feature'; hide: true">
+  I only show when the <code>cool-new-feature</code> feature flag is turned <code>off</code>.
+</div>
+```
+
+_Note: you cannot use other template referral directives when using this, e.g. `*ngIf="true"`._
+
 ### Service
 
 Provide the service to your module:

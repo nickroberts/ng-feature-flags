@@ -31,6 +31,27 @@ describe('NgffProviderService', () => {
     httpMock = injector.get(HttpTestingController);
   });
 
+  describe('#loadRemoteData', () => {
+    it('should return an Promise<NgffFeatureFlagData[]>', () => {
+      const mockFlagData = [{
+        key: 'mock-feature-flag-key',
+        title: 'Mock Feature Flag Title',
+        description: 'Mock Feature Flag Description',
+        default: true
+      }];
+
+      service.loadRemoteData().subscribe(response => {
+        expect(response.length).toBe(1);
+        expect(response).toEqual(mockFlagData);
+        expect(dataService.data).toEqual(mockFlagData);
+      });
+
+      const req = httpMock.expectOne(NGFF_DEFAULT_FEATURE_FLAG_JSON_URL);
+      expect(req.request.method).toBe('GET');
+      req.flush(mockFlagData);
+    });
+  });
+
   describe('#init', () => {
     it('should return an Promise<NgffFeatureFlagData[]>', () => {
       const mockFlagData = [{
@@ -40,15 +61,11 @@ describe('NgffProviderService', () => {
         default: true
       }];
 
-      service.init().then(response => {
+      service.init(mockFlagData).subscribe(response => {
         expect(response.length).toBe(1);
         expect(response).toEqual(mockFlagData);
         expect(dataService.data).toEqual(mockFlagData);
       });
-
-      const req = httpMock.expectOne(NGFF_DEFAULT_FEATURE_FLAG_JSON_URL);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockFlagData);
     });
   });
 });

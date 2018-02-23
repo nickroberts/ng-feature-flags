@@ -20,6 +20,14 @@ import { Component, OnInit } from '@angular/core';
         This content is shown using the attribute <code>featureFlagHide="cool-new-feature"</code>.
       </p>
     </ngff-container>
+
+    <div *ngffIf="'cool-new-feature'">
+      I only show when the <code>cool-new-feature</code> feature flag is turned <code>on</code>.
+    </div>
+
+    <div *ngffIf="'cool-new-feature'; hide: true">
+      I only show when the <code>cool-new-feature</code> feature flag is turned <code>off</code>.
+    </div>
   `,
   styles: []
 })
