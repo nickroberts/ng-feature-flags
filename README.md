@@ -145,22 +145,6 @@ export function setupNgff(http: HttpClient, ngffProviderService: NgffProviderSer
 
 ### Components
 
-To show content when a feature flag is `on`:
-
-```HTML
-<ngff-container featureFlag="cool-new-feature">
-  <p>This content will be shown when the cool-new-feature feature flag is on.</p>
-</ngff-container>
-```
-
-To show content when a feature flag is `off`:
-
-```HTML
-<ngff-container featureFlagHide="cool-new-feature">
-  <p>This content will be shown when the cool-new-feature feature flag is off.</p>
-</ngff-container>
-```
-
 To show the list of feature flags, where you can enable and disable them:
 
 ```HTML
@@ -169,21 +153,37 @@ To show the list of feature flags, where you can enable and disable them:
 
 ### Directive
 
-You can use the `*ngffIf="'feature-flag-name'"` directive to show or hide an element based on a feature flag.
+You can use the `*ngffIf="['feature-flag-name']"` directive to show or hide an element based on a feature flag.
 
 To show an element when a feature flag is on:
 
 ```HTML
-<div *ngffIf="'cool-new-feature'">
-  I only show when the <code>cool-new-feature</code> feature flag is turned <code>on</code>.
+<div *ngffIf="['cool-new-feature']">
+  I only show when the "cool-new-feature" feature flag is turned "on".
 </div>
 ```
 
 Tp hide an element when a feature flag is on:
 
 ```HTML
-<div *ngffIf="'cool-new-feature'; hide: true">
-  I only show when the <code>cool-new-feature</code> feature flag is turned <code>off</code>.
+<div *ngffIf="['cool-new-feature']; hide: true;">
+  I only show when the "cool-new-feature" feature flag is turned "off".
+</div>
+```
+
+To show an element when multiple feature flags are on:
+
+```HTML
+<div *ngffIf="['cool-new-feature', 'another-cool-new-feature']">
+  I only show when both the "cool-new-feature" and "another-cool-new-feature" feature flags are turned "on".
+</div>
+```
+
+To show an element when one of multiple feature flags are on:
+
+```HTML
+<div *ngffIf="['cool-new-feature', 'another-cool-new-feature']; operator: 'OR';">
+  I show when either the "cool-new-feature" or "another-cool-new-feature" feature flag are turned "on".
 </div>
 ```
 

@@ -8,26 +8,6 @@ import { Component } from '@angular/core';
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link" routerLink="">Home</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="cool-new-feature">Cool New Feature</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="another-cool-new-feature">Another Cool New Feature</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="environment-cool-new-feature">Environment Cool New Feature</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="feature-flag-not-available">Feature Flag Not Available</a>
-          </li>
-        </ul>
-      </div>
     </nav>
 
     <div class="container">

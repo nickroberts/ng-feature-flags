@@ -9,16 +9,12 @@ import { NgffProviderService } from './ngff//ngff-provider.service';
 import { NgffFeatureFlagData } from './ngff/ngff-data.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CoolNewFeatureComponent } from './cool-new-feature/cool-new-feature.component';
-import { AnotherCoolNewFeatureComponent } from './another-cool-new-feature/another-cool-new-feature.component';
 
 import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { EnvironmentCoolNewFeatureComponent } from './environment-cool-new-feature/another-cool-new-feature.component';
-import { FeatureFlagNotAvailableComponent } from './feature-flag-not-available/feature-flag-not-available.component';
 
 export function setupNgff(http: HttpClient, ngffProviderService: NgffProviderService) {
   return () => http
@@ -37,11 +33,7 @@ export function setupNgff(http: HttpClient, ngffProviderService: NgffProviderSer
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CoolNewFeatureComponent,
-    AnotherCoolNewFeatureComponent,
-    EnvironmentCoolNewFeatureComponent,
-    FeatureFlagNotAvailableComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
