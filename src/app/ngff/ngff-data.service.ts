@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface NgffFeatureFlagData {
   key: string;
@@ -15,7 +16,9 @@ export const NGFF_LOCAL_STORAGE_DISABLED = 'DISABLED';
 @Injectable()
 export class NgffDataService {
 
-  data: NgffFeatureFlagData[];
+  get data() { return this.data$.value; }
+  set data(data: NgffFeatureFlagData[]) { this.data$.next(data); }
+  data$: BehaviorSubject<NgffFeatureFlagData[]> = new BehaviorSubject([]);
 
   constructor() { }
 

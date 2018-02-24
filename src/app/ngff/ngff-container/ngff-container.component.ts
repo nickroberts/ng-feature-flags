@@ -19,6 +19,10 @@ export class NgffContainerComponent implements OnInit {
   constructor(private ngffDataService: NgffDataService) { }
 
   ngOnInit() {
+    this.ngffDataService.data$.subscribe(response => this.updateView());
+  }
+
+  private updateView() {
     if (this.featureFlagHide) {
       this.enabled = !this.ngffDataService.enabled(this.featureFlagHide);
     } else if (this.featureFlag) {
