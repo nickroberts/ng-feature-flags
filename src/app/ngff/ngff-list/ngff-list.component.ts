@@ -24,13 +24,13 @@ import { NgffDataService, NgffFeatureFlagData } from '../ngff-data.service';
               name="{{ ff.key }}-enabled"
               (change)="change(ff)"
               [(ngModel)]="ff.enabled">
-              <label ngbButtonLabel class="btn-primary">
+              <label ngbButtonLabel class="btn-secondary">
                 <input ngbButton type="radio" [value]="undefined"> Default ({{ ff.default }})
               </label>
-              <label ngbButtonLabel class="btn-primary">
+              <label ngbButtonLabel class="btn-secondary">
                 <input ngbButton type="radio" [value]="true"> On
               </label>
-              <label ngbButtonLabel class="btn-primary">
+              <label ngbButtonLabel class="btn-secondary">
                 <input ngbButton type="radio" [value]="false"> Off
               </label>
             </div>
@@ -42,10 +42,9 @@ import { NgffDataService, NgffFeatureFlagData } from '../ngff-data.service';
   styles: []
 })
 export class NgffListComponent implements OnInit {
-
   data: NgffFeatureFlagData[];
 
-  constructor(private ngffDataService: NgffDataService) { }
+  constructor(private ngffDataService: NgffDataService) {}
 
   ngOnInit() {
     this.data = this.ngffDataService.data;
@@ -64,5 +63,4 @@ export class NgffListComponent implements OnInit {
         this.ngffDataService.reset(flag.key);
     }
   }
-
 }

@@ -7,14 +7,11 @@
   "bugs": {
     "url": "https://github.com/nickroberts/ng-feature-flags/issues"
   },
-  "keywords": [
-    "angular",
-    "feature flags"
-  ],
+  "keywords": ["angular", "feature flags"],
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
   "license": "MIT",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "ngPackage": {
     "lib": {
       "entryFile": "public_api.ts",
