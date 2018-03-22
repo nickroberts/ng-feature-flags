@@ -7,7 +7,10 @@
   "bugs": {
     "url": "https://github.com/nickroberts/ng-feature-flags/issues"
   },
-  "keywords": ["angular", "feature flags"],
+  "keywords": [
+    "angular",
+    "feature flags"
+  ],
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
   "license": "MIT",
