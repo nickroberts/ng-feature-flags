@@ -14,7 +14,7 @@
   "author": "Nick Roberts <me@nicholasjasy.com>",
   "contributors": [],
   "license": "MIT",
-  "version": "1.0.0-beta.8",
+  "version": "2.0.0",
   "ngPackage": {
     "lib": {
       "entryFile": "public_api.ts",
@@ -34,8 +34,7 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p package.json"
   },
-  "private": true,
-  "dependencies": {
+  "peerDependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
