@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 export interface NgffFeatureFlagData {
   key: string;
@@ -15,12 +15,15 @@ export const NGFF_LOCAL_STORAGE_DISABLED = 'DISABLED';
 
 @Injectable()
 export class NgffDataService {
-
-  get data() { return this.data$.value; }
-  set data(data: NgffFeatureFlagData[]) { this.data$.next(data); }
+  get data() {
+    return this.data$.value;
+  }
+  set data(data: NgffFeatureFlagData[]) {
+    this.data$.next(data);
+  }
   data$: BehaviorSubject<NgffFeatureFlagData[]> = new BehaviorSubject([]);
 
-  constructor() { }
+  constructor() {}
 
   enabled(key: string) {
     return this.checkEnabled(key);
@@ -51,12 +54,12 @@ export class NgffDataService {
 
   private setEnabled(key: string, value: boolean) {
     try {
-      return this.data = this.data.map(ff => {
+      return (this.data = this.data.map(ff => {
         if (ff.key === key) {
           ff.enabled = value;
         }
         return ff;
-      });
+      }));
     } catch (e) {
       // We do not need to do anything with this error,
       // as we might not have the feature flag available in all environments,
@@ -73,5 +76,4 @@ export class NgffDataService {
       return false;
     }
   }
-
 }

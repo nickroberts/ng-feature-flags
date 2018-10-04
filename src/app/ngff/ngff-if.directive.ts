@@ -10,7 +10,6 @@ export enum NgffIfOperator {
   selector: '[ngffIf]'
 })
 export class NgffIfDirective implements OnInit {
-
   private featureFlags: string[];
   private hide = false;
   private operator = NgffIfOperator.AND;
@@ -38,12 +37,10 @@ export class NgffIfDirective implements OnInit {
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
     private ngffDataService: NgffDataService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.ngffDataService.data$.subscribe(
-      response => this.updateView()
-    );
+    this.ngffDataService.data$.subscribe(response => this.updateView());
   }
 
   private check() {
@@ -53,9 +50,7 @@ export class NgffIfDirective implements OnInit {
           .map(ff => !this.ngffDataService.enabled(ff))
           .reduce((init, current) => init || current);
       } else {
-        return this.featureFlags
-          .map(ff => this.ngffDataService.enabled(ff))
-          .reduce((init, current) => init || current);
+        return this.featureFlags.map(ff => this.ngffDataService.enabled(ff)).reduce((init, current) => init || current);
       }
     } else {
       if (this.hide) {
@@ -63,9 +58,7 @@ export class NgffIfDirective implements OnInit {
           .map(ff => !this.ngffDataService.enabled(ff))
           .reduce((init, current) => init && current);
       } else {
-        return this.featureFlags
-          .map(ff => this.ngffDataService.enabled(ff))
-          .reduce((init, current) => init && current);
+        return this.featureFlags.map(ff => this.ngffDataService.enabled(ff)).reduce((init, current) => init && current);
       }
     }
   }
@@ -79,5 +72,4 @@ export class NgffIfDirective implements OnInit {
       this.viewContainer.clear();
     }
   }
-
 }
