@@ -18,11 +18,12 @@ import { Component } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [`
-    nav {
-      margin-bottom: 2rem;
-    }
-  `]
+  styles: [
+    `
+      nav {
+        margin-bottom: 2rem;
+      }
+    `
+  ]
 })
-export class AppComponent {
-}
+export class AppComponent {}

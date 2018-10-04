@@ -4,8 +4,8 @@ Add the ability to turn features on and off through the use of feature flags.
 
 ## Requirements
 
-* [Bootstrap 4.0.0+](https://getbootstrap.com)
-* [ng-bootstrap 1.0.0+](https://ng-bootstrap.github.io/)
+- [Bootstrap 4.0.0+](https://getbootstrap.com)
+- [ng-bootstrap 3.0.0+](https://ng-bootstrap.github.io/)
 
 ## Installation
 
@@ -199,12 +199,10 @@ import { CommonModule } from '@angular/common';
 import { NgffDataService } from '@nickroberts/ng-feature-flags';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [NgffDataService]
 })
-export class SharedModule { }
+export class SharedModule {}
 ```
 
 Inject the service into your component:
